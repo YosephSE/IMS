@@ -49,7 +49,7 @@ function Store() {
                 <img
                   alt="store"
                   className="h-60 w-full object-cover"
-                  src={element.image}
+                  src={element.image || "store.png"}
                 />
               </div>
               <div className="flex flex-col gap-3 justify-between items-start">
