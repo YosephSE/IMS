@@ -143,7 +143,7 @@ export default function Header() {
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={localStorageData.imageUrl}
+                        src={localStorageData.imageUrl || "avator.png"}
                         alt="profile"
                       />
                     </div>
