@@ -158,20 +158,17 @@ function Login() {
                 onClick={loginUser}
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  {/* <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  /> */}
+                  
                 </span>
                 Sign in
               </button>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
                 <span
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium "
                 >
-                  Don't Have an Account, Please{" "}
-                  <Link to="/register"> Register now </Link>
+                  Don't Have an Account,
+                  <Link to="/register" className="text-indigo-600 hover:text-indigo-500"> Register now </Link>
                 </span>
               </p>
             </div>

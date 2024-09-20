@@ -183,10 +183,10 @@ function Register() {
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
                 <span
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium "
                 >
-                  Already Have an Account, Please
-                  <Link to="/login"> Signin now </Link>
+                  Already Have an Account,
+                  <Link to="/login" className="text-indigo-600 hover:text-indigo-500"> Login </Link>
                 </span>
               </p>
             </div>
