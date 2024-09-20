@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import Store from "./pages/Store";
 import Sales from "./pages/Sales";
 import PurchaseDetails from "./pages/PurchaseDetails";
+import { api } from "./api";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -57,6 +58,7 @@ const App = () => {
       </div>
     );
 
+console.log("API: ", api)
   return (
     <AuthContext.Provider value={value}>
       <BrowserRouter>

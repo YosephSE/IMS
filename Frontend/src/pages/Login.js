@@ -2,6 +2,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
+import { api } from "../api";
 
 function Login() {
   const [form, setForm] = useState({
@@ -19,7 +20,7 @@ function Login() {
 
   const authCheck = () => {
     setTimeout(() => {
-      fetch("http://localhost:4000/api/login")
+      fetch(`${api}/login`)
         .then((response) => response.json())
         .then((data) => {
           alert("Successfully Login");
@@ -40,7 +41,7 @@ function Login() {
     if (form.email === "" || form.password === "") {
       alert("To login user, enter details to proceed...");
     } else {
-      fetch("http://localhost:4000/api/login", {
+      fetch(`${api}/login`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -157,20 +158,17 @@ function Login() {
                 onClick={loginUser}
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  {/* <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  /> */}
+                  
                 </span>
                 Sign in
               </button>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
                 <span
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium "
                 >
-                  Don't Have an Account, Please{" "}
-                  <Link to="/register"> Register now </Link>
+                  Don't Have an Account,
+                  <Link to="/register" className="text-indigo-600 hover:text-indigo-500"> Register now </Link>
                 </span>
               </p>
             </div>

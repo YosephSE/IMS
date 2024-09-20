@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const StoreSchema = new mongoose.Schema(
   {
     userID: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'users',
+      // type: mongoose.Schema.Types.ObjectId,
+      type: String,
+      ref: "users",
       required: true,
     },
     name: {
@@ -25,7 +26,7 @@ const StoreSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
+      default: "https://via.placeholder.com/150",
     },
   },
   { timestamps: true }
