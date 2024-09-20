@@ -31,8 +31,7 @@ function Register() {
     })
       .then((result) => {
         alert("Successfully Registered, Now Login with your details");
-        navigate('/login')
-        
+        navigate("/login");
       })
       .catch((err) => console.log(err));
   };
@@ -56,10 +55,9 @@ function Register() {
       .catch((error) => console.log(error));
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <>
@@ -146,8 +144,6 @@ function Register() {
                   name="remember-me"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  checked
-                  required
                 />
                 <label
                   htmlFor="remember-me"
@@ -156,14 +152,14 @@ function Register() {
                   I Agree Terms & Conditons
                 </label>
               </div>
-
+              {/* 
               <div className="text-sm">
                 <span
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Forgot your password?
                 </span>
-              </div>
+              </div> */}
             </div>
 
             <div>
@@ -172,21 +168,20 @@ function Register() {
                 className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={registerUser}
               >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  {/* <LockClosedIcon
-                      className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                      aria-hidden="true"
-                    /> */}
-                </span>
+                
                 Sign up
               </button>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
-                <span
-                  className="font-medium "
-                >
+                <span className="font-medium ">
                   Already Have an Account,
-                  <Link to="/login" className="text-indigo-600 hover:text-indigo-500"> Login </Link>
+                  <Link
+                    to="/login"
+                    className="text-indigo-600 hover:text-indigo-500"
+                  >
+                    {" "}
+                    Login{" "}
+                  </Link>
                 </span>
               </p>
             </div>
