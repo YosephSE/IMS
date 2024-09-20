@@ -4,6 +4,7 @@ import AuthContext from "../AuthContext";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { api } from "../api";
+import SalesPieChart from "../components/SalesChart";
 
 // ChartJS.register(ArcElement, Tooltip, Legend);
 // export const data = {
@@ -272,10 +273,12 @@ function Dashboard() {
                 {stores.length}{" "}
               </span>
 
-              {/* <span className="text-xs text-gray-500"> from 0 </span> */}
             </p>
           </div>
         </article>
+        <div>
+          <SalesPieChart />
+        </div>
         {/* <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
           <div>
             <Chart
