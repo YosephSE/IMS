@@ -2,6 +2,7 @@ import { Fragment, useContext, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import AuthContext from "../AuthContext";
+import { api } from "../api";
 
 export default function AddProduct({
   addProductModalSetting,
@@ -23,7 +24,7 @@ export default function AddProduct({
   };
 
   const addProduct = () => {
-    fetch("http://localhost:4000/api/product/add", {
+    fetch(`${api}/product/add`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
