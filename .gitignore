@@ -46,3 +46,9 @@ yarn-error.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Backend
+/Backend/.env
+
+# Frontend
+/Frontend/.env
