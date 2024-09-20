@@ -119,7 +119,7 @@ function Dashboard() {
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`${api}/api/product/get/${authContext.user}`)
+    fetch(`${api}/product/get/${authContext.user}`)
       .then((response) => response.json())
       .then((datas) => setProducts(datas))
       .catch((err) => console.log(err));
@@ -127,7 +127,7 @@ function Dashboard() {
 
   // Fetching Monthly Sales
   const fetchMonthlySalesData = () => {
-    fetch(`${api}/api/sales/getmonthly`)
+    fetch(`${api}/sales/getmonthly`)
       .then((response) => response.json())
       .then((datas) => updateChartData(datas.salesAmount))
       .catch((err) => console.log(err));
