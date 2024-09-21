@@ -26,7 +26,6 @@ const StoreSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "https://via.placeholder.com/150",
     },
   },
   { timestamps: true }
