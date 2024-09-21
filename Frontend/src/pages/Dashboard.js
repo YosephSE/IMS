@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import Chart from "react-apexcharts";
 import AuthContext from "../AuthContext";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { api } from "../api";
 import SalesPieChart from "../components/SalesChart";
-
 
 function Dashboard() {
   const [saleAmount, setSaleAmount] = useState("");
@@ -13,48 +9,7 @@ function Dashboard() {
   const [stores, setStores] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const [chart, setChart] = useState({
-    options: {
-      chart: {
-        id: "basic-bar",
-      },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-      },
-    },
-    series: [
-      {
-        name: "series",
-        data: [10, 20, 40, 50, 60, 20, 10, 35, 45, 70, 25, 70],
-      },
-    ],
-  });
-
-  // Update Chart Data
-  const updateChartData = (salesData) => {
-    setChart({
-      ...chart,
-      series: [
-        {
-          name: "Monthly Sales Amount",
-          data: [...salesData],
-        },
-      ],
-    });
-  };
+ 
 
   const authContext = useContext(AuthContext);
 
@@ -63,23 +18,19 @@ function Dashboard() {
     fetchTotalPurchaseAmount();
     fetchStoresData();
     fetchProductsData();
-    fetchMonthlySalesData();
+    // fetchMonthlySalesData();
   }, []);
 
   // Fetching total sales amount
   const fetchTotalSaleAmount = () => {
-    fetch(
-      `${api}/sales/get/${authContext.user}/totalsaleamount`
-    )
+    fetch(`${api}/sales/get/${authContext.user}/totalsaleamount`)
       .then((response) => response.json())
       .then((datas) => setSaleAmount(datas.totalSaleAmount));
   };
 
   // Fetching total purchase amount
   const fetchTotalPurchaseAmount = () => {
-    fetch(
-      `${api}/purchase/get/${authContext.user}/totalpurchaseamount`
-    )
+    fetch(`${api}/purchase/get/${authContext.user}/totalpurchaseamount`)
       .then((response) => response.json())
       .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
   };
@@ -100,12 +51,12 @@ function Dashboard() {
   };
 
   // Fetching Monthly Sales
-  const fetchMonthlySalesData = () => {
-    fetch(`${api}/sales/getmonthly`)
-      .then((response) => response.json())
-      .then((datas) => updateChartData(datas.salesAmount))
-      .catch((err) => console.log(err));
-  };
+  // const fetchMonthlySalesData = () => {
+  //   fetch(`${api}/sales/getmonthly`)
+  //     .then((response) => response.json())
+  //     .then((datas) => updateChartData(datas.salesAmount))
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>
@@ -245,12 +196,11 @@ function Dashboard() {
                 {" "}
                 {stores.length}{" "}
               </span>
-
             </p>
           </div>
         </article>
         {/* <div> */}
-          <SalesPieChart />
+        <SalesPieChart />
         {/* </div> */}
         {/* <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
           <div>
