@@ -1,15 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../AuthContext";
 import { api } from "../api";
-import SalesPieChart from "../components/SalesChart";
+import PieChart from "../components/SalesChart";
 
 function Dashboard() {
   const [saleAmount, setSaleAmount] = useState("");
   const [purchaseAmount, setPurchaseAmount] = useState("");
   const [stores, setStores] = useState([]);
   const [products, setProducts] = useState([]);
-
- 
 
   const authContext = useContext(AuthContext);
 
@@ -25,42 +23,36 @@ function Dashboard() {
   const fetchTotalSaleAmount = () => {
     fetch(`${api}/sales/get/${authContext.user}/totalsaleamount`)
       .then((response) => response.json())
-      .then((datas) => setSaleAmount(datas.totalSaleAmount));
+      .then((data) => setSaleAmount(data.totalSaleAmount));
   };
 
   // Fetching total purchase amount
   const fetchTotalPurchaseAmount = () => {
     fetch(`${api}/purchase/get/${authContext.user}/totalpurchaseamount`)
       .then((response) => response.json())
-      .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
+      .then((data) => setPurchaseAmount(data.totalPurchaseAmount));
   };
 
   // Fetching all stores data
   const fetchStoresData = () => {
     fetch(`${api}/store/get/${authContext.user}`)
       .then((response) => response.json())
-      .then((datas) => setStores(datas));
+      .then((data) => setStores(data));
   };
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
     fetch(`${api}/product/get/${authContext.user}`)
       .then((response) => response.json())
-      .then((datas) => setProducts(datas))
+      .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   };
 
-  // Fetching Monthly Sales
-  // const fetchMonthlySalesData = () => {
-  //   fetch(`${api}/sales/getmonthly`)
-  //     .then((response) => response.json())
-  //     .then((datas) => updateChartData(datas.salesAmount))
-  //     .catch((err) => console.log(err));
-  // };
+
 
   return (
     <>
-      <div className="grid grid-cols-1 col-span-12 lg:col-span-10 gap-6 md:grid-cols-3 lg:grid-cols-4  p-4 ">
+      <div className="grid grid-cols-1 col-span-12 lg:col-span-10 gap-6 md:grid-cols-2 lg:grid-cols-4  p-4 ">
         <article className="flex flex-col gap-4 rounded-lg border  border-gray-100 bg-white p-6  ">
           <div className="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600">
             <svg
@@ -193,15 +185,19 @@ function Dashboard() {
 
             <p>
               <span className="text-2xl font-medium text-gray-900">
-                {" "}
-                {stores.length}{" "}
+  
+                {stores.length}
               </span>
             </p>
           </div>
         </article>
-        {/* <div> */}
-        <SalesPieChart />
-        {/* </div> */}
+        <div className="block ">
+          <PieChart />
+          <PieChart />
+          <PieChart />
+          <PieChart />
+          <PieChart />
+        </div>
         {/* <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
           <div>
             <Chart
