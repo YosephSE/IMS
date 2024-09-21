@@ -276,9 +276,9 @@ function Dashboard() {
             </p>
           </div>
         </article>
-        <div>
+        {/* <div> */}
           <SalesPieChart />
-        </div>
+        {/* </div> */}
         {/* <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
           <div>
             <Chart
