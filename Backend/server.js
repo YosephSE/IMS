@@ -12,13 +12,13 @@ const app = express();
 const PORT = 4000;
 main();
 app.use(express.json());
-const corsOptions = {
-  origin: ['https://ims-seven-khaki.vercel.app', 'http://localhost:3000'], 
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Set-Cookie", "Cookie"],
+  })
+);
 
 
 
