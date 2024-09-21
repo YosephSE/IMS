@@ -5,7 +5,7 @@ const StoreSchema = new mongoose.Schema(
     userID: {
       // type: mongoose.Schema.Types.ObjectId,
       type: String,
-      ref: "users",
+      // ref: "users",
       required: true,
     },
     name: {
