@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const StoreSchema = new mongoose.Schema(
   {
     userID: {
-      // type: mongoose.Schema.Types.ObjectId,
       type: String,
       // ref: "users",
       required: true,
@@ -14,7 +13,7 @@ const StoreSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      required: true,
+      default: "Electronics",
     },
     address: {
       type: String,
