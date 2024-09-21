@@ -8,6 +8,8 @@ const cors = require("cors");
 const User = require("./models/users");
 const Product = require("./models/product");
 
+const dotenv = require("dotenv");
+dotenv.config();
 const app = express();
 const PORT = 4000;
 main();
@@ -19,9 +21,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Set-Cookie", "Cookie"],
   })
 );
-
-
-
 
 // Store API
 app.use("/api/store", storeRoute);
