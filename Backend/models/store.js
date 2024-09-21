@@ -3,9 +3,8 @@ const mongoose = require("mongoose");
 const StoreSchema = new mongoose.Schema(
   {
     userID: {
-      // type: mongoose.Schema.Types.ObjectId,
       type: String,
-      ref: "users",
+      // ref: "users",
       required: true,
     },
     name: {
@@ -14,7 +13,7 @@ const StoreSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      required: true,
+      default: "Electronics",
     },
     address: {
       type: String,
@@ -26,7 +25,6 @@ const StoreSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "https://via.placeholder.com/150",
     },
   },
   { timestamps: true }

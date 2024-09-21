@@ -50,7 +50,7 @@ function Register() {
       .then((res) => res.json())
       .then((data) => {
         setForm({ ...form, imageUrl: data.url });
-        alert("Image Successfully Uploaded");
+        console.log("Image Successfully Uploaded");
       })
       .catch((error) => console.log(error));
   };

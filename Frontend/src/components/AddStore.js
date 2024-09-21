@@ -10,7 +10,7 @@ export default function AddStore() {
   const [form, setForm] = useState({
     userId: authContext.user,
     name: "",
-    category: "",
+    category: "Electronics",
     address: "",
     city: "",
     image: "",
@@ -51,7 +51,7 @@ export default function AddStore() {
       .then((res) => res.json())
       .then((data) => {
         setForm({ ...form, image: data.url });
-        alert("Store Image Successfully Uploaded");
+        console.log("Store Image Successfully Uploaded");
       })
       .catch((error) => console.log(error));
   };
