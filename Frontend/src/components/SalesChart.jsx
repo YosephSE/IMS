@@ -1,42 +1,54 @@
+// DoughnutChartComponent.js
 import React from 'react';
-import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
-const data = [
-  { name: 'Electronics', value: 400 },
-  { name: 'Clothing', value: 300 },
-  { name: 'Books', value: 200 },
-  { name: 'Home & Garden', value: 278 },
-  { name: 'Toys', value: 189 },
-];
+// Register components for Chart.js
+ChartJS.register(ArcElement, Tooltip);
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8'];
+const DoughnutChartComponent = () => {
+    const data = {
+        labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+        datasets: [
+            {
+                label: 'Sales',
+                data: [300, 50, 100, 75, 125], // Sales data for the products
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',   // Color for Product A
+                    'rgba(54, 162, 235, 0.2)',   // Color for Product B
+                    'rgba(255, 206, 86, 0.2)',   // Color for Product C
+                    'rgba(75, 192, 192, 0.2)',   // Color for Product D
+                    'rgba(153, 102, 255, 0.2)',  // Color for Product E
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                ],
+                borderWidth: 1,
+            },
+        ],
+    };
 
-const SalesPieChart = () => {
-  return (
-    <div className="w-full h-[400px]">
-      <h2 className="text-xl font-bold mb-4">Sales Classification by Product</h2>
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            outerRadius={150}
-            fill="#8884d8"
-            dataKey="value"
-            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
-  );
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: 'bottom', // Hide the legend
+            },
+            tooltip: {
+                enabled: true, // Enable tooltips on hover
+            },
+        },
+    };
+
+    return (
+        <div style={{ width: '50%', margin: '0 auto' }}>
+            <Doughnut data={data} options={options} />
+        </div>
+    );
 };
 
-export default SalesPieChart;
+export default DoughnutChartComponent;
