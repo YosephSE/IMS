@@ -78,16 +78,16 @@ function Login() {
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Signin to your account
+              Signin
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            {/* <p className="mt-2 text-center text-sm text-gray-600">
               Or
               <span
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 start your 14-day free trial
               </span>
-            </p>
+            </p> */}
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             {/* <input type="hidden" name="remember" defaultValue="true" /> */}
@@ -163,7 +163,6 @@ function Login() {
                 Sign in
               </button>
               <p className="mt-2 text-center text-sm text-gray-600">
-                Or{" "}
                 <span
                   className="font-medium "
                 >
