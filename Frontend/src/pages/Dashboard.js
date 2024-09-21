@@ -37,7 +37,7 @@ function Dashboard() {
   const fetchStoresData = () => {
     fetch(`${api}/store/get/${authContext.user}`)
       .then((response) => response.json())
-      .then((datas) => setStores(datas));
+      .then((data) => setStores(data));
   };
 
   // Fetching Data of All Products
@@ -48,13 +48,7 @@ function Dashboard() {
       .catch((err) => console.log(err));
   };
 
-  // Fetching Monthly Sales
-  // const fetchMonthlySalesData = () => {
-  //   fetch(`${api}/sales/getmonthly`)
-  //     .then((response) => response.json())
-  //     .then((datas) => updateChartData(datas.salesAmount))
-  //     .catch((err) => console.log(err));
-  // };
+
 
   return (
     <>
