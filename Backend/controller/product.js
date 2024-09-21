@@ -1,4 +1,4 @@
-const Product = require("../models/Product");
+const Product = require("../models/product");
 const Purchase = require("../models/purchase");
 const Sales = require("../models/sales");
 
@@ -34,16 +34,12 @@ const getAllProducts = async (req, res) => {
 
 // Delete Selected Product
 const deleteSelectedProduct = async (req, res) => {
-  const deleteProduct = await Product.deleteOne(
-    { _id: req.params.id }
-  );
-  const deletePurchaseProduct = await Purchase.deleteOne(
-    { ProductID: req.params.id }
-  );
+  const deleteProduct = await Product.deleteOne({ _id: req.params.id });
+  const deletePurchaseProduct = await Purchase.deleteOne({
+    ProductID: req.params.id,
+  });
 
-  const deleteSaleProduct = await Sales.deleteOne(
-    { ProductID: req.params.id }
-  );
+  const deleteSaleProduct = await Sales.deleteOne({ ProductID: req.params.id });
   res.json({ deleteProduct, deletePurchaseProduct, deleteSaleProduct });
 };
 
