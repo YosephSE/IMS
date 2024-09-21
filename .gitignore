@@ -50,5 +50,7 @@ yarn-error.log*
 # Backend
 /Backend/.env
 
+.env
+
 # Frontend
 /Frontend/.env
