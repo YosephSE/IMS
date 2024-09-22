@@ -2,9 +2,9 @@ const Product = require("../models/product");
 const Purchase = require("../models/purchase");
 const Sales = require("../models/sales");
 
-// Add Post
+
 const addProduct = (req, res) => {
-  // console.log("req: ", req.body.userId);
+
   console.log(req.body);
   const addProduct = new Product({
     userID: req.body.userId,

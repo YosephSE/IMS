@@ -44,7 +44,7 @@ function Register() {
     data.append("file", image);
     data.append("upload_preset", "inventoryapp");
 
-    await fetch("https://api.cloudinary.com/v1_1/ddhayhptm/image/upload", {
+    await fetch(process.env.REACT_APP_CLOUDINARY_API, {
       method: "POST",
       body: data,
     })

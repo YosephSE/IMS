@@ -22,29 +22,21 @@ app.use(
   })
 );
 
-// Store API
 app.use("/api/store", storeRoute);
 
-// Products API
 app.use("/api/product", productRoute);
 
-// Purchase API
 app.use("/api/purchase", purchaseRoute);
 
-// Sales API
 app.use("/api/sales", salesRoute);
 
-// ------------- Signin --------------
 let userAuthCheck;
 app.post("/api/login", async (req, res) => {
-  console.log(req.body);
-  // res.send("hi");
   try {
     const user = await User.findOne({
       email: req.body.email,
       password: req.body.password,
     });
-    console.log("USER: ", user);
     if (user) {
       res.send(user);
       userAuthCheck = user;
@@ -58,13 +50,10 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-// Getting User Details of login user
 app.get("/api/login", (req, res) => {
   res.send(userAuthCheck);
 });
-// ------------------------------------
 
-// Registration API
 app.post("/api/register", (req, res) => {
   let registerUser = new User({
     firstName: req.body.firstName,
@@ -81,15 +70,13 @@ app.post("/api/register", (req, res) => {
       res.status(200).send(result);
     })
     .catch((err) => console.log("Signup: ", err));
-  console.log("request: ", req.body);
+
 });
 
 app.get("/testget", async (req, res) => {
-  
-  res.json({message: "Hello World"});
+  res.json({ message: "Hello World" });
 });
 
-// Here we are listening to the server
 app.listen(PORT, () => {
-  console.log("I am live again");
+  console.log("Server running on port:", PORT);
 });
