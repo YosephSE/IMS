@@ -151,8 +151,7 @@ function Register() {
                   I Agree Terms & Conditions
                 </label>
               </div>
-              {/* 
-           
+
             </div>
 
             <div>
