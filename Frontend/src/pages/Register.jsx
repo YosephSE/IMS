@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UploadImage from "../components/UploadImage";
 import { api } from "../api";
+import { successToast } from "../components/toast";
 
 function Register() {
   const [form, setForm] = useState({
@@ -30,7 +31,7 @@ function Register() {
       body: JSON.stringify(form),
     })
       .then((result) => {
-        alert("Successfully Registered, Now Login with your details");
+        successToast("Registration Successfully");
         navigate("/login");
       })
       .catch((err) => console.log(err));

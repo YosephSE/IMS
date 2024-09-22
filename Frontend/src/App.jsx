@@ -14,6 +14,7 @@ import Store from "./pages/Store";
 import Sales from "./pages/Sales";
 import PurchaseDetails from "./pages/PurchaseDetails";
 import { api } from "./api";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -61,8 +62,10 @@ const App = () => {
 console.log("API: ", api)
   return (
     <AuthContext.Provider value={value}>
+          <Toaster />
       <BrowserRouter>
         <Routes>
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route

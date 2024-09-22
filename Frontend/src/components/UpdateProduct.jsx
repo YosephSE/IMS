@@ -2,6 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { api } from "../api";
+import { successToast } from "./toast";
 export default function UpdateProduct({
   updateProductData,
   updateModalSetting,
@@ -30,7 +31,7 @@ export default function UpdateProduct({
       body: JSON.stringify(product),
     })
       .then((result) => {
-        alert("Product Updated");
+        successToast("Product Updated Successfully");
         setOpen(false);
       })
       .catch((err) => console.log(err));

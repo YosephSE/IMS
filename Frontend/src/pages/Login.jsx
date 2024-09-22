@@ -1,8 +1,10 @@
-// import { LockClosedIcon } from "@heroicons/react/20/solid";
+
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
 import { api } from "../api";
+import { Toaster } from "react-hot-toast";
+import { successToast, errorToast } from "../components/toast";
 
 function Login() {
   const [form, setForm] = useState({
@@ -23,23 +25,23 @@ function Login() {
       fetch(`${api}/login`)
         .then((response) => response.json())
         .then((data) => {
-          alert("Successfully Login");
+          successToast("Successfully Login");
           localStorage.setItem("user", JSON.stringify(data));
           authContext.signin(data._id, () => {
             navigate("/");
           });
         })
         .catch((err) => {
-          alert("Wrong credentials, Try again")
+          errorToast("Wrong credentials, Try again")
           console.log(err);
         });
     }, 3000);
   };
 
   const loginUser = (e) => {
-    // Cannot send empty data
+
     if (form.email === "" || form.password === "") {
-      alert("To login user, enter details to proceed...");
+      errorToast("Required fields cannot be empty");
     } else {
       fetch(`${api}/login`, {
         method: "POST",
@@ -66,6 +68,7 @@ function Login() {
   
   return (
     <>
+      <Toaster />
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen  items-center place-items-center">
         <div className="flex justify-center">
           <img src={require("../assets/signup.jpg")} alt="" />
