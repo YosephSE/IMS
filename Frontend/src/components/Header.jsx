@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import AuthContext from "../AuthContext";
 import { Link } from "react-router-dom";
+import { successToast } from "./toast";
 
 const navigation = [
   { name: "Dashboard", href: "/", current: true },
@@ -20,6 +21,10 @@ function classNames(...classes) {
 
 export default function Header() {
   const authContext = useContext(AuthContext);
+  const signout = () => {
+    authContext.signout();
+    successToast("Successfully Logout");
+  };
   const localStorageData = JSON.parse(localStorage.getItem("user"));
   return (
     <>
@@ -85,7 +90,7 @@ export default function Header() {
                                       "block px-4 py-2 text-sm text-gray-700"
                                     )}
                                   >
-                                    <span onClick={() => authContext.signout()}>
+                                    <span onClick={signout}>
                                       {item.name}{" "}
                                     </span>
                                   </Link>
@@ -172,7 +177,7 @@ export default function Header() {
                         href={item.href}
                         className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                       >
-                        <span onClick={() => authContext.signout()}>
+                        <span onClick={signout}>
                           {item.name}{" "}
                         </span>
                       </Disclosure.Button>

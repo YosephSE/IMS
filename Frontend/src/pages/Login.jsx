@@ -39,9 +39,9 @@ function Login() {
   };
 
   const loginUser = (e) => {
-    // Cannot send empty data
+
     if (form.email === "" || form.password === "") {
-      alert("To login user, enter details to proceed...");
+      errorToast("Required fields cannot be empty");
     } else {
       fetch(`${api}/login`, {
         method: "POST",

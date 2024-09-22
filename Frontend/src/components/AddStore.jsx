@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import UploadImage from "./UploadImage";
 import AuthContext from "../AuthContext";
 import { api } from "../api";
+import { successToast } from "./toast";
 
 export default function AddStore() {
   const authContext = useContext(AuthContext);
@@ -32,7 +33,7 @@ export default function AddStore() {
       body: JSON.stringify(form),
     })
       .then((result) => {
-        alert("STORE ADDED");
+        successToast("Store Added Successfully");
         setOpen(false);
       })
       .catch((err) => console.log(err));

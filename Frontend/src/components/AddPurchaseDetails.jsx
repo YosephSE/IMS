@@ -2,6 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { api } from "../api";
+import { successToast } from "./toast";
 
 export default function AddPurchaseDetails({
   addSaleModalSetting,
@@ -36,7 +37,7 @@ export default function AddPurchaseDetails({
       body: JSON.stringify(purchase),
     })
       .then((result) => {
-        alert("Purchase ADDED");
+        successToast("Purchase Added Successfully");
         handlePageUpdate();
         addSaleModalSetting();
       })

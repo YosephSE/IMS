@@ -79,7 +79,6 @@ app.post("/api/register", (req, res) => {
     .save()
     .then((result) => {
       res.status(200).send(result);
-      alert("Signup Successfull");
     })
     .catch((err) => console.log("Signup: ", err));
   console.log("request: ", req.body);

@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import AuthContext from "../AuthContext";
 import { api } from "../api";
+import { successToast } from "./toast";
 
 export default function AddProduct({
   addProductModalSetting,
@@ -32,7 +33,7 @@ export default function AddProduct({
       body: JSON.stringify(product),
     })
       .then((result) => {
-        alert("Product ADDED");
+        successToast("Product Added Successfully");
         handlePageUpdate();
         addProductModalSetting();
       })
