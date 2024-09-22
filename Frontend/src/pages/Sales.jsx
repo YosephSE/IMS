@@ -18,7 +18,6 @@ function Sales() {
     fetchStoresData();
   }, [updatePage]);
 
-  // Fetching Data of All Sales
   const fetchSalesData = () => {
     fetch(`${api}/sales/get/${authContext.user}`)
       .then((response) => response.json())
@@ -28,7 +27,6 @@ function Sales() {
       .catch((err) => console.log(err));
   };
 
-  // Fetching Data of All Products
   const fetchProductsData = () => {
     fetch(`${api}/product/get/${authContext.user}`)
       .then((response) => response.json())
@@ -38,7 +36,7 @@ function Sales() {
       .catch((err) => console.log(err));
   };
 
-  // Fetching Data of All Stores
+
   const fetchStoresData = () => {
     fetch(`${api}/store/get/${authContext.user}`)
       .then((response) => response.json())

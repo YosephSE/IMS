@@ -70,7 +70,7 @@ app.post("/api/register", (req, res) => {
       res.status(200).send(result);
     })
     .catch((err) => console.log("Signup: ", err));
-  console.log("request: ", req.body);
+
 });
 
 app.get("/testget", async (req, res) => {
