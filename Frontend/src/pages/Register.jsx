@@ -36,9 +36,7 @@ function Register() {
       })
       .catch((err) => console.log(err));
   };
-  // ------------------
-
-  // Uploading image to cloudinary
+  
   const uploadImage = async (image) => {
     const data = new FormData();
     data.append("file", image);
@@ -150,17 +148,10 @@ function Register() {
                   htmlFor="remember-me"
                   className="ml-2 block text-sm text-gray-900"
                 >
-                  I Agree Terms & Conditons
+                  I Agree Terms & Conditions
                 </label>
               </div>
-              {/* 
-              <div className="text-sm">
-                <span
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  Forgot your password?
-                </span>
-              </div> */}
+
             </div>
 
             <div>
