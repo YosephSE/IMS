@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../AuthContext";
 import { api } from "../api";
 import PieChart from "../components/SalesChart";
+import HorizontalBarChart from "../components/SAPdetail";
 
 function Dashboard() {
   const [saleAmount, setSaleAmount] = useState("");
@@ -191,12 +192,10 @@ function Dashboard() {
             </p>
           </div>
         </article>
-        <div className="block ">
+        <div className="flex justify-start ">
+          <HorizontalBarChart />
           <PieChart />
-          <PieChart />
-          <PieChart />
-          <PieChart />
-          <PieChart />
+
         </div>
         {/* <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
           <div>
