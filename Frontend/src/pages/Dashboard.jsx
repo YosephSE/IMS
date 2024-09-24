@@ -82,7 +82,6 @@ function Dashboard() {
                 ${saleAmount}
               </span>
 
-              <span className="text-xs text-gray-500"> from $240.94 </span>
             </p>
           </div>
         </article>
@@ -118,7 +117,6 @@ function Dashboard() {
                 ${purchaseAmount}{" "}
               </span>
 
-              <span className="text-xs text-gray-500"> from $404.32 </span>
             </p>
           </div>
         </article>
@@ -188,7 +186,7 @@ function Dashboard() {
           </div>
         </article>
         <div className="flex justify-start ">
-          <HorizontalBarChart sales={saleAmount} purchase={purchaseAmount} />
+          {/* <HorizontalBarChart sales={saleAmount} purchase={purchaseAmount} /> */}
           <PieChart sales={saleAmount} purchase={purchaseAmount} />
         </div>
       </div>
