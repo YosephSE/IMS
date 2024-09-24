@@ -19,7 +19,9 @@ ChartJS.register(
   Legend
 );
 
-const HorizontalBarChart = () => {
+const HorizontalBarChart = ({sales, purchase }) => {
+    console.log("Sales: ", sales)
+    console.log("Purchase: ", purchase)
   const [salesData, setSalesData] = useState(null);
   const [purchaseData, setPurchaseData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -36,7 +38,7 @@ const HorizontalBarChart = () => {
 //   };
 
 const fetchSalesData = async () => {
-    setSalesData({total: 2000});
+    setSalesData({total: sales});
     }
 
   // Fetch purchases data
@@ -50,7 +52,7 @@ const fetchSalesData = async () => {
 //     }
 //   };
 const fetchPurchaseData = async () => {
-    setPurchaseData({total: 1000});
+    setPurchaseData({total: purchase});
     }
 
   useEffect(() => {
@@ -87,7 +89,6 @@ const fetchPurchaseData = async () => {
     },
   };
 
-  // Show loading text while data is being fetched
   if (loading) {
     return <p>Loading...</p>;
   }

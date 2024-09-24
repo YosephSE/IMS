@@ -4,13 +4,13 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip);
 
-const DoughnutChartComponent = (sales, purchase) => {
+const DoughnutChartComponent = ({sales, purchase}) => {
     const data = {
         labels: ["Sales", "Purchase"],
         datasets: [
             {
                 label: 'Sales',
-                data: [sales.sales, sales.purchase],
+                data: [sales, purchase],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',  
                     'rgba(54, 162, 235, 0.2)',  

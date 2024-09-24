@@ -49,8 +49,6 @@ function Dashboard() {
       .catch((err) => console.log(err));
   };
 
-
-
   return (
     <>
       <div className="grid grid-cols-1 col-span-12 lg:col-span-10 gap-6 md:grid-cols-2 lg:grid-cols-4  p-4 ">
@@ -154,8 +152,6 @@ function Dashboard() {
                 {" "}
                 {products.length}{" "}
               </span>
-
-              {/* <span className="text-xs text-gray-500"> from $404.32 </span> */}
             </p>
           </div>
         </article>
@@ -186,30 +182,15 @@ function Dashboard() {
 
             <p>
               <span className="text-2xl font-medium text-gray-900">
-  
                 {stores.length}
               </span>
             </p>
           </div>
         </article>
         <div className="flex justify-start ">
-          <HorizontalBarChart />
-          <PieChart />
-
+          <HorizontalBarChart sales={saleAmount} purchase={purchaseAmount} />
+          <PieChart sales={saleAmount} purchase={purchaseAmount} />
         </div>
-        {/* <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
-          <div>
-            <Chart
-              options={chart.options}
-              series={chart.series}
-              type="bar"
-              width="500"
-            />
-          </div>
-          <div>
-            <Doughnut data={data} />
-          </div>
-        </div> */}
       </div>
     </>
   );
