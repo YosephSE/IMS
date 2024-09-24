@@ -1,31 +1,25 @@
-// DoughnutChartComponent.js
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
-// Register components for Chart.js
 ChartJS.register(ArcElement, Tooltip);
 
-const DoughnutChartComponent = () => {
+const DoughnutChartComponent = (sales, purchase) => {
     const data = {
-        labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+        labels: ["Sales", "Purchase"],
         datasets: [
             {
                 label: 'Sales',
-                data: [300, 50, 100, 75, 125], // Sales data for the products
+                data: [sales.sales, sales.purchase],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',   // Color for Product A
-                    'rgba(54, 162, 235, 0.2)',   // Color for Product B
-                    'rgba(255, 206, 86, 0.2)',   // Color for Product C
-                    'rgba(75, 192, 192, 0.2)',   // Color for Product D
-                    'rgba(153, 102, 255, 0.2)',  // Color for Product E
+                    'rgba(255, 99, 132, 0.2)',  
+                    'rgba(54, 162, 235, 0.2)',  
+            
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
+                   
                 ],
                 borderWidth: 1,
             },
@@ -36,16 +30,16 @@ const DoughnutChartComponent = () => {
         responsive: true,
         plugins: {
             legend: {
-                display: 'bottom', // Hide the legend
+                display: 'bottom', 
             },
             tooltip: {
-                enabled: true, // Enable tooltips on hover
+                enabled: true, 
             },
         },
     };
 
     return (
-        <div style={{ width: '50%', margin: '0 auto' }}>
+        <div style={{ width: '90%', margin: '0 auto' }}>
             <Doughnut data={data} options={options} />
         </div>
     );
